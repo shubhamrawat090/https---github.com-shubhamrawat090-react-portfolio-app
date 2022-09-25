@@ -60,7 +60,7 @@ h1 {
 section {
     padding-top: 6rem;
     margin-top: 8rem;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 section > h2, section > h5 {
