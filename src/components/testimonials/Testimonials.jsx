@@ -5,27 +5,32 @@ import AVTR2 from '../../assets/avatar2.avif'
 import AVTR3 from '../../assets/avatar3.avif'
 import AVTR4 from '../../assets/avatar4.avif'
 
+// import Swiper core and required modules
+import { Pagination } from 'swiper';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 const data = [
     {
-        id: 1,
         avatar: AVTR1,
         name: 'Tina Snow',
         review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid voluptatibus veritatis tempore quis pariatur. Aut facilis maiores laudantium repellat reprehenderit magnam quis, ab, nihil cumque dolorum necessitatibus consectetur obcaecati recusandae?',
     },
     {
-        id: 2,
         avatar: AVTR2,
         name: 'Shatta Wale',
         review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid voluptatibus veritatis tempore quis pariatur. Aut facilis maiores laudantium repellat reprehenderit magnam quis, ab, nihil cumque dolorum necessitatibus consectetur obcaecati recusandae?',
     },
     {
-        id: 3,
         avatar: AVTR3,
         name: 'Kwame Despite',
         review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid voluptatibus veritatis tempore quis pariatur. Aut facilis maiores laudantium repellat reprehenderit magnam quis, ab, nihil cumque dolorum necessitatibus consectetur obcaecati recusandae?',
     },
     {
-        id: 4,
         avatar: AVTR4,
         name: 'Nana Ama McBrown',
         review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid voluptatibus veritatis tempore quis pariatur. Aut facilis maiores laudantium repellat reprehenderit magnam quis, ab, nihil cumque dolorum necessitatibus consectetur obcaecati recusandae?',
@@ -38,11 +43,20 @@ const Testimonials = () => {
             <h5>Review from clients</h5>
             <h2>Testimonials</h2>
 
-            <div className="container testimonials__container">
+            <Swiper
+                className="container testimonials__container"
+                // install Swiper modules
+                modules={[Pagination]}
+                spaceBetween={40}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log('slide change')}
+            >
                 {
-                    data.map(({ id, avatar, name, review }) => {
+                    data.map(({ avatar, name, review }, index) => {
                         return (
-                            <article key={id} className="testimonial">
+                            <SwiperSlide key={index} className="testimonial">
                                 <div className="client__avatar">
                                     <img src={avatar} alt={name} />
                                 </div>
@@ -50,11 +64,11 @@ const Testimonials = () => {
                                 <small className='client__review'>
                                     {review}
                                 </small>
-                            </article>
+                            </SwiperSlide>
                         )
                     })
                 }
-            </div>
+            </Swiper>
         </section>
     )
 }

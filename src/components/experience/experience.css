@@ -4,11 +4,6 @@
     padding-top: 0;
 }
 
-#experience {
-    margin-top: 0;
-    padding-top: 6rem;
-}
-
 .experience__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -54,9 +49,7 @@
 /* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1024px) {
     #experience {
-        margin-top: 15rem;
         padding-top: 3rem;
-        height: 110vh;
     }
 
     .experience__container {
@@ -76,11 +69,6 @@
 
 /* =============== MEDIA QUERIES (SMALL DEVICES) =============== */
 @media screen and (max-width: 600px) {
-    #experience {
-        margin-bottom: 5rem;
-        padding-top: 3rem;
-    }
-
     .experience__container {
         gap: 1rem;
     }
